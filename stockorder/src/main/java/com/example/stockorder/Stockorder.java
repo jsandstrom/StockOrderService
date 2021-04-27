@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.stockorder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +14,9 @@ public class Stockorder {
     private Integer amount;
     private boolean buy;
     private Integer stockId;
+    private double fee;
 
-    
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -48,7 +49,16 @@ public class Stockorder {
 		this.stockId = stockId;
 	}
 
+    public void setFee(double d) {
+        this.fee = d;
+    }
 
-        
+    public Double getFee() {
+        return this.fee;
+    }
+
+    public Double calculateTotalCost() {
+        return amount + fee;
+    }
 
 }
